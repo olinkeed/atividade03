@@ -1,0 +1,69 @@
+Questão A
+1. Valores impressos pelas instruções das linhas 4 e 5:
+
+Na linha printf("\n Valor de i: %d", *p_contador);, *p_contador desreferencia o ponteiro p_contador, que aponta para i. Assim, imprime o valor de i, que é 5.
+Na linha printf("\n Valor de i: %d", p_contador);, p_contador é um ponteiro e %d não é o formato correto para endereços de memória. Isso provavelmente resultará em uma saída incorreta ou até mesmo em um comportamento indefinido, pois %d está formatando o endereço de memória como um inteiro, enquanto o correto seria %p para endereços.
+Valores esperados:
+Linha 4: Valor de i: 5
+Linha 5: O valor impresso será o endereço de memória onde i está armazenado, mas será interpretado erroneamente como um inteiro.
+2. Valores resultantes das instruções das linhas 4 a 6:
+
+Cada printf mostra o endereço de memória das variáveis conta, salario, e resposta em formato hexadecimal. %x é usado para mostrar endereços de memória como números hexadecimais.
+Valores esperados:
+
+Os valores impressos serão os endereços de memória das variáveis, e esses endereços dependem da alocação na memória no momento da execução. Eles serão diferentes para cada execução e máquina.
+
+3. Valores resultantes das instruções das linhas 6 a 8:
+
+valor = *p; atribui o valor de num (que é 55) à variável valor.
+printf ("%d\n", valor); imprime o valor de valor, que é 55.
+printf ("%p\n", p); imprime o endereço de memória onde num está armazenado.
+printf ("%d\n", *p); imprime o valor armazenado no endereço apontado por p, que é o mesmo valor de num, ou seja, 55.
+Valores esperados:
+
+Linha 6: 55
+Linha 7: O endereço de memória onde num está armazenado (em formato hexadecimal).
+Linha 8: 55
+Questão B
+1. Qual a instrução correta para a declaração de um ponteiro de inteiros?
+A instrução correta para declarar um ponteiro para inteiros é:
+int *pti;
+2. Qual instrução atribui o valor a uma variável do tipo ponteiro?
+pti = &i;
+
+3. Há outras instruções válidas? Quais? O que elas fazem?
+Sim:
+int *pti; — Declara pti como um ponteiro para int
+int pti; — Declara pti como uma variável do tipo int, não um ponteiro
+pti = *i; — Não é válida para ponteiros. Isso tentaria desreferenciar i, que não faz sentido aqui
+pti = &i; — Atribui o endereço de i ao ponteiro pti
+Questão C
+Qual afirmativa é falsa?
+
+pti armazena o endereço de i. — Verdadeiro.
+*pti é igual a 10. — Verdadeiro, pois pti aponta para i.
+Ao incluir a instrução *pti = 20; na linha 4, i passará a ter o valor 20. — Verdadeiro, porque *pti altera o valor de i diretamente.
+Ao alterar o valor de i, *pti será modificado. — Verdadeiro, porque *pti é apenas uma forma de acessar i.
+pti tem valor 10. — Falso, pti armazena o endereço de i, e não o valor 10.
+Questão D
+Suponha duas variáveis de ponto flutuante numero1 e numero2, onde numero1 é inicializada com 7.3. As instruções são:
+
+c
+Copiar código
+1. float *fP;
+2. fP = &numero1;
+3. printf("%f\n", *fP);
+4. numero2 = *fP;
+5. printf("%f\n", numero2);
+6. printf("Endereco de numero1: %p\n", (void*)&numero1);
+7. printf("Endereco armazenado em fP: %p\n", (void*)fP);
+Explicação:
+
+Linha 1: Declara fP como um ponteiro para float
+Linha 2: Atribui o endereço de numero1 a fP
+Linha 3: Imprime o valor de numero1 através do ponteiro fP, que é 7.3
+Linha 4: Atribui o valor apontado por fP (que é 7.3) a numero2
+Linha 5: Imprime o valor de numero2, que será 7.3
+Linha 6: Imprime o endereço de numero1
+Linha 7: Imprime o endereço armazenado em fP, que é o mesmo endereço de numero1
+Resposta para a última pergunta: Sim, o valor impresso para o endereço armazenado em fP (linha 7) será o mesmo que o endereço de numero1 (linha 6), pois fP aponta para numero1
